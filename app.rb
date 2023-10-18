@@ -53,11 +53,14 @@ get("/dice/5/4") do
   erb(:five_four)
 end
 
-get("/dynamic/50/6") do
+get("/dynamic/:dice/:sides") do #make "zebra" a wildcard using a colon
+  @number_of_dice = params.fetch("dice").to_i
+  @number_of_sides = params.fetch("sides").to_i
+  
   @rolls = []
 
-  50.times do
-    die = rand(1..6)
+  @number_of_dice.times do
+    die = rand(1..@number_of_sides)
 
     @rolls.push(die)
   end
