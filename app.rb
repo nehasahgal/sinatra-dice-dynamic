@@ -53,7 +53,7 @@ get("/dice/5/4") do
   erb(:five_four)
 end
 
-get("/dynamic/:dice/:sides") do #make "zebra" a wildcard using a colon
+get("/dice/:dice/:sides") do #make "zebra" a wildcard using a colon
   @number_of_dice = params.fetch("dice").to_i
   @number_of_sides = params.fetch("sides").to_i
   
